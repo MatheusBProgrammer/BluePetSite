@@ -1,0 +1,44 @@
+.navbarDropDown {
+  position: relative;
+}
+.navbarDropDown:hover {
+  margin: 0;
+  background-color: #f1ffb1;
+}
+.navbarDropDown div {
+  font-size: 1em;
+}
+.dropdownContent {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  z-index: 2;
+  flex-direction: column;
+}
+.dropdownContent {
+  display: none;
+}
+
+.navbarDropDown .dropdownContent {
+  transition: opacity 1s ease; /* Adiciona a transição na propriedade 'opacity' */
+
+  border: none;
+  display: block;
+}
+
+.dropdownContent a {
+  width: 99%;
+
+  background-color: #f1ffb1;
+  margin-bottom: 0.2em;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+.dropdownContent a:hover {
+  font-weight: bold;
+  background-color: #e2f97d;
+}
