@@ -1,19 +1,34 @@
 import React from "react";
+import { FaCartPlus } from "react-icons/fa6";
 import styles from "./CardProduct.module.css";
 
-const CardProduct = ({ medicamento }) => {
+const CardProduct = ({ medicamento, funcaoCarrinho }) => {
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      onClick={() => funcaoCarrinho(medicamento)}
+    >
       <img
         src={medicamento.foto}
         alt={medicamento.nome}
         className={styles.imagem}
       />
       <div className={styles.conteudo}>
-        {" "}
-        <h3>{medicamento.nome}</h3>
-        <p>Quantidade: {medicamento.quantidade}</p>
-        <p>Preço: {medicamento.preço}</p>
+        <h3>
+          {medicamento.nome}
+          <br></br>({medicamento.tipo})
+        </h3>
+        <div className={styles.informacoes}>
+          <p>Quantidade: {medicamento.quantidade}</p>
+          <p>Preço: {medicamento.preço}</p>
+        </div>
+
+        <div className={styles.button}>
+          <div className={styles.buttonInfo}>
+            <span>1x</span> {medicamento.nome}
+          </div>
+          <FaCartPlus /> <span>Adicionar ao carrinho</span>
+        </div>
       </div>
     </div>
   );

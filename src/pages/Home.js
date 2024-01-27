@@ -5,9 +5,9 @@ import styles from "./Home.module.css";
 
 function Home() {
   const buttonSpringStyle = useSpring({
-    from: { transform: "translateX(-300%)" },
+    from: { transform: "translateX(-500%)" },
     to: { transform: "translateX(0%)" },
-    config: { duration: 500 },
+    config: { duration: 1000 },
   });
 
   const textSpringStyle = useSpring({

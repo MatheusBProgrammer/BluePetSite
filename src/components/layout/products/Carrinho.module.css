@@ -1,6 +1,109 @@
 .container {
-  width: 25%;
-  height: 50vh;
-  background-color: red;
+  box-shadow: 1px 1px 15px 0.1px;
+  font-family: "Montserrat", sans-serif;
+  width: 30%;
+  min-height: 10vh;
+  background-color: #5fcccedc;
   border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 200;
+  font-size: 2em;
+  padding: 0;
+  overflow: hidden;
+}
+.container svg {
+  color: #266364;
+  font-size: 1.5em;
+}
+.container p {
+  font-weight: bold;
+  margin: 0;
+  padding: 0.5em;
+
+  color: #266364;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.container2 {
+  font-size: 0.5em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+.container2 img {
+  height: 5em;
+}
+.container2 ul {
+  margin: 0;
+  padding: 0;
+}
+
+.container2 ul li {
+  display: flex;
+  align-items: baseline;
+  flex-direction: row;
+  align-items: center;
+}
+.container2 ul li {
+  margin: 0.5em;
+  background-color: #ffffff;
+  border-radius: 30px;
+  padding: 0.5em;
+}
+.container2 ul li img {
+  border-radius: 30px;
+}
+
+.container ul li span {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2em;
+}
+
+.container ul li .x {
+  font-size: 0.7em;
+}
+
+@media (min-width: 2500px) {
+  .container {
+    font-size: 3em;
+  }
+}
+@media (max-width: 770px) {
+  .container {
+    font-size: 1.5em;
+  }
+}
+.bottom {
+  font-weight: bold;
+  width: 100%;
+  margin: 0.5em;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7em;
+}
+.bottom span {
+  margin-right: 0.5em;
+  background-color: white;
+  border-radius: 30px;
+}
+.botao {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  padding-right: 1em;
+  margin-bottom: 0.3em;
+}
+@media (max-width: 900px) {
+  .container {
+    width: 50%;
+    margin-bottom: 1em;
+  }
 }

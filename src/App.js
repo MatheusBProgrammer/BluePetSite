@@ -12,6 +12,7 @@ import Testes from "./pages/Appointments/Testes";
 import Exame from "./pages/Appointments/Exame";
 import Farmacia from "./pages/products/Farmacia";
 import Petshop from "./pages/products/Petshop";
+import CarrinhoPage from "./pages/CarrinhoPage";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function RoutesWithTransitions() {
           <Route path="/exame" element={<Exame />} />
           <Route path="/farmacia" element={<Farmacia />} />
           <Route path="/petshop" element={<Petshop />} />
+          <Route path="/carrinho" element={<CarrinhoPage />} />
         </Routes>
       </motion.div>
     </AnimatePresence>

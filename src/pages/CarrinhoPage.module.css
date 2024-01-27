@@ -1,0 +1,108 @@
+.container {
+  padding: 5em;
+  padding-top: 1em;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-weight: 200;
+  font-size: 2em;
+  margin: 0;
+}
+.container h2 {
+  width: 100%;
+  text-align: center;
+}
+
+.container svg {
+  font-size: 1.5em;
+}
+
+.container p {
+  font-weight: bold;
+  margin: 0;
+  padding: 0.5em;
+  color: #266364;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.container2 {
+  font-size: 0.8em; /* Adjusted font size */
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Adjusted to column layout */
+  align-items: center; /* Adjusted to center items */
+}
+
+.container2 img {
+  height: 5em;
+}
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabela th,
+.tabela td {
+  padding: 1em;
+  text-align: left;
+}
+
+.tabela th {
+  background-color: #266364;
+  color: white;
+}
+
+.tabela td {
+  border-top: 1px solid #e0e0e0;
+}
+.cabecalho {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+.bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+.bottom span {
+  background-color: #266364;
+  padding: 1em;
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+}
+.bottom button {
+  box-sizing: content-box;
+  width: 400px;
+  height: 2em;
+  border: none;
+  color: rgba(255, 255, 255, 0.473);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  background-color: #2663648e;
+
+  cursor: pointer;
+}
+.bottom button:hover {
+  transition: 0.2s;
+  color: white;
+  font-weight: 800;
+  background-color: #266364;
+}

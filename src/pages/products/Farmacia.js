@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Farmacia.module.css";
 import CardProduct from "../../components/layout/products/CardProduct";
 import antitoxico from "../../imgs/farmacia/antitoxico.jpg";
@@ -12,6 +12,7 @@ import enronew from "../../imgs/farmacia/enronew.jpg";
 import meloxiword from "../../imgs/farmacia/Meloxiword.jpg";
 import meticorten5 from "../../imgs/farmacia/meticorten5.jpg";
 import Carrinho from "../../components/layout/products/Carrinho";
+import { CartContext } from "../../components/context/CartContext";
 
 function Farmacia() {
   const medicamentos = [
@@ -87,14 +88,20 @@ function Farmacia() {
     },
   ];
 
+  const { cart, addToCart } = useContext(CartContext);
+
   return (
     <div className={styles.page}>
+      {cart.length > 0 && <Carrinho />}
       <div className={styles.container}>
-        {medicamentos.map((medicamento, index) => (
-          <CardProduct key={index} medicamento={medicamento} />
+        {medicamentos.map((produto, index) => (
+          <CardProduct
+            key={index}
+            medicamento={produto}
+            funcaoCarrinho={addToCart}
+          />
         ))}
       </div>
-      <Carrinho />
     </div>
   );
 }
