@@ -2,57 +2,60 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./CarrinhoPage.module.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "../components/context/CartContext";
-import { FaRegFaceSadTear } from "react-icons/fa6";
 import { PiDogThin } from "react-icons/pi";
+import { IoIosAdd, IoIosRemove } from "react-icons/io";
+import { MdOutlineMarkUnreadChatAlt } from "react-icons/md";
+import Modal from "../components/layout/Modal";
 
 function CarrinhoPage() {
-  const { cart } = useContext(CartContext);
-  const [listaCarrinho, setListaCarrinho] = useState([]);
+  const { cart, removeFromCart, setCart } = useContext(CartContext);
 
-  const total =
-    cart.length > 0
-      ? cart
-          .map((item) => Number(item.preço))
-          .reduce((total, quantidade) => total + quantidade)
-      : 0;
+  const [modalVisivel, setModalVisivel] = useState(false);
+  const abrirModal = () => {
+    setModalVisivel(true);
+  };
 
-  useEffect(() => {
-    // Função para atualizar a lista de produtos no carrinho
-    const atualizarListaCarrinho = () => {
-      // Cria uma nova lista vazia para armazenar produtos únicos e suas quantidades
-      const novaListaCarrinho = [];
+  const fecharModal = () => {
+    setModalVisivel(false);
+  };
 
-      // Itera sobre cada produto no carrinho
-      cart.forEach((element) => {
-        // Verifica se o produto já existe na nova lista pelo nome
-        const produtoExistente = novaListaCarrinho.find(
-          (item) => item.nome === element.nome
+  useEffect(() => {}, [cart]);
+
+  const total = cart.reduce(
+    (acc, item) =>
+      acc +
+      (item.quantidadeCarrinho ? item.quantidadeCarrinho : 0) * item.preço,
+    0
+  );
+
+  const removerUnidade = (item) => {
+    // Verifica se a quantidade é maior que 0 antes de reduzir
+    if (item.quantidadeCarrinho > 1) {
+      setCart((prevcart) => {
+        return prevcart.map((produto) =>
+          produto.nome === item.nome
+            ? { ...produto, quantidadeCarrinho: produto.quantidadeCarrinho - 1 }
+            : produto
         );
-
-        // Se o produto já existe na nova lista
-        if (produtoExistente) {
-          // Incrementa a quantidade do produto existente
-          produtoExistente.quantidade += 1;
-        } else {
-          // Se o produto não existe na nova lista, adiciona com quantidade 1
-          novaListaCarrinho.push({
-            foto: element.foto,
-            nome: element.nome,
-            tipo: element.tipo,
-            preco: element.preço,
-            quantidade: 1,
-          });
-        }
       });
-
-      // Atualiza o estado com a nova lista de produtos no carrinho
-      setListaCarrinho(novaListaCarrinho);
-    };
-
-    // Chama a função de atualização quando o carrinho é modificado
-    // (o array de dependências [cart] garante que a função seja chamada quando o carrinho é alterado)
-    atualizarListaCarrinho();
-  }, [cart]);
+    } else if (item.quantidadeCarrinho <= 1) {
+      alert("Produto retirado do carrinho");
+      removeFromCart(item);
+    }
+  };
+  const adicionarUnidade = (item) => {
+    if (item.quantidade === item.quantidadeCarrinho) {
+      alert("Não há estoque suficiente para adicionar mais desse item!");
+      return;
+    }
+    setCart((prevcart) => {
+      return prevcart.map((produto) =>
+        produto.nome === item.nome
+          ? { ...produto, quantidadeCarrinho: produto.quantidadeCarrinho + 1 }
+          : produto
+      );
+    });
+  };
 
   return (
     <div className={styles.container}>
@@ -62,7 +65,7 @@ function CarrinhoPage() {
           <FaShoppingCart />
         </p>
       </div>
-      {listaCarrinho.length > 0 && (
+      {cart.length > 0 && (
         <div className={styles.container2}>
           <table className={styles.tabela}>
             <thead>
@@ -70,24 +73,50 @@ function CarrinhoPage() {
                 <th>Produto</th>
                 <th>Preço</th>
                 <th>Quantidade</th>
+                <th> </th>
               </tr>
             </thead>
             <tbody>
-              {listaCarrinho.map((item, index) => (
+              {cart.map((item, index) => (
                 <tr key={index}>
                   <td>
                     <img src={item.foto} alt={item.nome} />
                     &nbsp; &nbsp;
-                    <span>
-                      {item.nome} <span className={styles.x}>x</span>(
-                      {item.tipo})
-                    </span>
+                    <span className={styles.nomeItem}>{item.nome} </span>
+                    <span className={styles.tipo}>({item.tipo})</span>
                   </td>
-                  <td>{item.preco}</td>
+                  <td>R${item.preço}</td>
 
                   <td>
                     <div className={styles.quantidade}>
-                      <p>{item.quantidade}</p>
+                      <p>{item.quantidadeCarrinho}</p>
+                      <div className={styles.quantidadeSelect}>
+                        {" "}
+                        <button
+                          className={styles.removerItem}
+                          onClick={() => removerUnidade(item)}
+                        >
+                          <IoIosRemove />
+                        </button>
+                        <button
+                          className={styles.adicionarItem}
+                          onClick={() => adicionarUnidade(item)}
+                        >
+                          <IoIosAdd />
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className={styles.removeButton}>
+                      {" "}
+                      <button
+                        onClick={() => {
+                          removeFromCart(item);
+                        }}
+                      >
+                        Remover produto
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -102,11 +131,15 @@ function CarrinhoPage() {
             {" "}
             <button
               onClick={() => {
-                console.log("botao");
+                if (modalVisivel) {
+                  fecharModal();
+                } else {
+                  abrirModal();
+                }
               }}
             >
-              {" "}
-              Soliticar produtos
+              Soliticar produtos &nbsp;
+              <MdOutlineMarkUnreadChatAlt />
             </button>
           </div>
           <span>
@@ -117,6 +150,9 @@ function CarrinhoPage() {
         <h2>
           Seu carrinho está vazio! <PiDogThin />{" "}
         </h2>
+      )}
+      {modalVisivel && (
+        <Modal cart={cart} preçoTotal={total} funcao={fecharModal} />
       )}
     </div>
   );

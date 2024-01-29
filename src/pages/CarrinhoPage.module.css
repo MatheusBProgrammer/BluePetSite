@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   font-weight: 200;
   font-size: 2em;
   margin: 0;
@@ -29,7 +30,7 @@
 }
 
 .container2 {
-  font-size: 0.8em; /* Adjusted font size */
+  font-size: 0.5em; /* Adjusted font size */
   width: 100%;
   display: flex;
   flex-direction: column; /* Adjusted to column layout */
@@ -40,7 +41,7 @@
   height: 5em;
 }
 .tabela {
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
   margin-top: 1em;
   background-color: #ffffff;
@@ -51,8 +52,8 @@
 
 .tabela th,
 .tabela td {
-  padding: 1em;
-  text-align: left;
+  padding: 0.8em;
+  text-align: center;
 }
 
 .tabela th {
@@ -86,6 +87,7 @@
   border-radius: 30px;
 }
 .bottom button {
+  border-radius: 30px;
   box-sizing: content-box;
   width: 400px;
   height: 2em;
@@ -94,7 +96,9 @@
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1em;
   background-color: #2663648e;
 
@@ -105,4 +109,59 @@
   color: white;
   font-weight: 800;
   background-color: #266364;
+}
+.removeButton button {
+  font-size: 1em;
+  background-color: red;
+  color: white;
+  padding: 0.5em;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.quantidade {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.quantidadeSelect {
+  display: flex;
+  width: 30%;
+  justify-content: space-around;
+}
+.quantidadeSelect button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3em;
+  height: 100%;
+  margin: 0em 0.3em 0em 0.3em;
+  font-size: 1em;
+  border-radius: 10px;
+}
+.removerItem {
+  border: none;
+  cursor: pointer;
+  background-color: red;
+
+  color: white;
+}
+.adicionarItem {
+  border: none;
+  cursor: pointer;
+  background-color: green;
+  color: white;
+}
+.quantidadeSelect .removerItem:hover {
+  box-shadow: 0px 0px 2px 0px black;
+}
+.quantidadeSelect .adicionarItem:hover {
+  box-shadow: 0px 0px 2px 0px black;
+}
+.tipo {
+  font-size: 0.8em;
+}
+.nomeItem {
+  font-weight: bold;
 }

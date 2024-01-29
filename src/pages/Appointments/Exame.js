@@ -49,8 +49,7 @@ function Exame() {
         formData.petName &&
         formData.petType &&
         formData.petAge &&
-        formData.testeType &&
-        formData.testeDate
+        formData.exameDate
       );
     };
 

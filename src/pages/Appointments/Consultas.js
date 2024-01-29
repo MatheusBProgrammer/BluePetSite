@@ -77,8 +77,8 @@ function Consultas() {
         formData.petName &&
         formData.petType &&
         formData.petAge &&
-        formData.testeType &&
-        formData.testeDate
+        formData.symptoms &&
+        formData.preferredDate
       );
     };
 
