@@ -13,6 +13,7 @@ import Exame from "./pages/Appointments/Exame";
 import Farmacia from "./pages/products/Farmacia";
 import Petshop from "./pages/products/Petshop";
 import CarrinhoPage from "./pages/CarrinhoPage";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Navbar />
         <RoutesWithTransitions />
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }

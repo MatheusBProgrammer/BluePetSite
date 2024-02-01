@@ -165,3 +165,9 @@
 .nomeItem {
   font-weight: bold;
 }
+@media (max-width: 900px) {
+  .bottom span {
+    font-size: 0.5em;
+    margin-right: 1em;
+  }
+}

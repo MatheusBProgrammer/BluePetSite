@@ -1,7 +1,8 @@
 .container {
-  max-width: 800px;
+  background-image: url("../imgs/pata3.jpg");
+  height: 90vh;
   margin: 0 auto;
-  padding: 20px;
+  padding: 15em;
   text-align: center;
 }
 

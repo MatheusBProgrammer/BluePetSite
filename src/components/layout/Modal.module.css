@@ -22,8 +22,9 @@
   cursor: pointer;
 }
 .modalBox {
+  max-height: 95%;
+  max-width: 70%;
   border-radius: 30px;
-
   box-sizing: border-box;
   padding: 2em;
   display: flex;

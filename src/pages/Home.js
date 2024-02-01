@@ -27,10 +27,10 @@ function Home() {
       </div>
       <div className={styles.links}>
         <animated.div style={buttonSpringStyle}>
-          <LinkButton linkto={"/products"} name={"Conheça nossos Produtos"} />
+          <LinkButton linkto={"/petshop"} name={"Conheça nossos Produtos"} />
         </animated.div>
         <animated.div style={buttonSpringStyle}>
-          <LinkButton linkto={"/appointments"} name={"Marque uma Consulta"} />
+          <LinkButton linkto={"/consultas"} name={"Marque uma Consulta"} />
         </animated.div>
       </div>
     </div>

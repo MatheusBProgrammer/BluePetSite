@@ -54,6 +54,7 @@ function Carrinho() {
         </div>
       )}
       <div className={styles.bottom}>
+        {" "}
         <span>
           {total > 0 ? <div>Total: R${Number(total).toFixed(2)}</div> : ""}{" "}
         </span>

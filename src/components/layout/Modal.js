@@ -1,10 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styles from "./Modal.module.css";
 import { TextField, Button } from "@material-ui/core";
 import { CartContext } from "../context/CartContext";
 import { IoCloseCircleOutline } from "react-icons/io5";
 
 const Modal = ({ cart, preçoTotal, funcao }) => {
+  // Verificação se todos os campos do formulário estão preenchidos
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+
   const [cliente, setCliente] = useState({
     nome: "",
     cidade: "",
@@ -14,7 +17,7 @@ const Modal = ({ cart, preçoTotal, funcao }) => {
   });
 
   const { setCart } = useContext(CartContext);
-  const total = preçoTotal; // Certifique-se de ter uma função para calcular o total.
+  const total = preçoTotal;
 
   const fecharModal = () => funcao();
 
@@ -38,13 +41,11 @@ const Modal = ({ cart, preçoTotal, funcao }) => {
     );
   };
 
-  // Função para lidar com o envio do formulário
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Formatar a mensagem do WhatsApp
     const message = formatWhatsAppMessage();
-    const whatsappNumber = "+5588999466218";
+    const whatsappNumber = "+5583988589918";
     const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(
       message
     )}`;
@@ -53,7 +54,19 @@ const Modal = ({ cart, preçoTotal, funcao }) => {
     fecharModal();
     alert("Pedido Concluido");
   };
+  useEffect(() => {
+    const checkIfFormIsValid = () => {
+      return (
+        cliente.nome &&
+        cliente.cidade &&
+        cliente.rua &&
+        cliente.bairro &&
+        cliente.numero
+      );
+    };
 
+    setIsSubmitDisabled(!checkIfFormIsValid());
+  }, [cliente]);
   return (
     <div className={styles.modal}>
       <div className={styles.modalBox}>
@@ -62,8 +75,8 @@ const Modal = ({ cart, preçoTotal, funcao }) => {
         </div>{" "}
         <div className={styles.modalContent}>
           <p>
-            Sua compra deu um total de: R${total + 6} (incluindo taxa de entrega
-            de R$6).
+            Sua compra deu um total de: R${total.toFixed(1) + 6} (incluindo taxa
+            de entrega de R$6).
           </p>
 
           {/* Formulário */}
@@ -115,7 +128,12 @@ const Modal = ({ cart, preçoTotal, funcao }) => {
               onChange={handleOnChange}
             />
 
-            <Button type="submit" variant="contained" color="primary">
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              disabled={isSubmitDisabled}
+            >
               Concluir pedido via WhatsApp
             </Button>
           </form>

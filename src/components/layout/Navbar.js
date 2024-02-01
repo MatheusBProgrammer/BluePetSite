@@ -11,6 +11,7 @@ export default function Navbar() {
     links: [
       { to: "/petshop", nameSession: "Petshop", icon: "🐾" },
       { to: "/farmacia", nameSession: "Farmácia", icon: "💊" },
+      { to: "/carrinho ", nameSession: "Carrinho", icon: "🛒" },
     ],
   };
   const agendamentoLinks = {

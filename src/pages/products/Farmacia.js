@@ -88,7 +88,23 @@ function Farmacia() {
     },
   ];
 
-  const { cart, addToCart } = useContext(CartContext);
+  /*   const [medicamentos, setMedicamentos] = useState([]);
+   */ const { cart, addToCart } = useContext(CartContext);
+
+  /*   useEffect(() => {
+    // Função para buscar medicamentos da API
+    const fetchMedicamentos = async () => {
+      try {
+        const response = await fetch("http://localhost:3333/products");
+        const data = await response.json();
+        setMedicamentos(data); // Atualiza o estado local com os medicamentos da API
+      } catch (error) {
+        console.error("Erro ao buscar medicamentos:", error);
+      }
+    };
+
+    fetchMedicamentos();
+  }, []); // */
 
   return (
     <div className={styles.page}>

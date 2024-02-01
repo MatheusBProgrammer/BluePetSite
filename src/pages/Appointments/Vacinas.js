@@ -42,7 +42,7 @@ function Vacinas() {
     event.preventDefault();
 
     const message = formatWhatsAppMessage();
-    const whatsappNumber = "+559";
+    const whatsappNumber = "+5583988589918";
     const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(
       message
     )}`;
