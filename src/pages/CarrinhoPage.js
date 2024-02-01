@@ -127,7 +127,7 @@ function CarrinhoPage() {
       )}
       {cart.length > 0 ? (
         <div className={styles.bottom}>
-          <div>
+          <div className={styles.bottomItems}>
             {" "}
             <button
               onClick={() => {
@@ -141,10 +141,10 @@ function CarrinhoPage() {
               Soliticar produtos &nbsp;
               <MdOutlineMarkUnreadChatAlt />
             </button>
+            <span>
+              {total !== 0 ? <div>Total: R${total.toFixed(2)}</div> : ""}{" "}
+            </span>
           </div>
-          <span>
-            {total !== 0 ? <div>Total: R${total.toFixed(2)}</div> : ""}{" "}
-          </span>
         </div>
       ) : (
         <h2>

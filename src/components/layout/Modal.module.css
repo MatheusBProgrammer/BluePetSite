@@ -48,6 +48,7 @@
     font-size: 0.7em;
   }
   .modalContent {
+    max-width: 80vh;
     align-items: flex-start;
     justify-content: flex-start;
   }
@@ -57,7 +58,6 @@
 
   .modalBox {
     font-size: 0.4em;
-    max-width: 100%;
     max-height: 150%;
     margin: 0;
     padding: 1em;
