@@ -42,3 +42,8 @@
   font-weight: bold;
   background-color: #e2f97d;
 }
+@media (max-width: 900px) {
+  .dropdownContent a {
+    font-size: 0.7em;
+  }
+}

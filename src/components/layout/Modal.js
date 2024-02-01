@@ -75,8 +75,8 @@ const Modal = ({ cart, preçoTotal, funcao }) => {
         </div>{" "}
         <div className={styles.modalContent}>
           <p>
-            Sua compra deu um total de: R${total.toFixed(1) + 6} (incluindo taxa
-            de entrega de R$6).
+            Sua compra deu um total de: R${total.toFixed(2)} (Obs: Taxa de
+            entrega: R$6).
           </p>
 
           {/* Formulário */}

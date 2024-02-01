@@ -8,3 +8,8 @@
   color: white;
   background-color: #5fcdce;
 }
+@media (max-width: 900px) {
+  .container {
+    font-size: 0.7em;
+  }
+}

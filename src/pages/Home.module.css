@@ -1,7 +1,6 @@
 .container {
   overflow: auto;
   transition: 1s;
-  min-width: 500px;
   margin: 0;
   padding: 1em;
   background-image: url("../imgs/background.png");
@@ -47,6 +46,9 @@
   align-items: center;
 }
 @media (max-width: 900px) {
+  .container {
+    background-size: cover;
+  }
   .welcome {
     padding: 0;
     transition: 1s;
