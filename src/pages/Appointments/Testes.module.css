@@ -8,7 +8,6 @@
   background-color: rgba(95, 205, 206, 0.5);
   display: flex;
   flex-direction: column;
-  height: 100vh;
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
