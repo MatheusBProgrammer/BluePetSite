@@ -60,6 +60,7 @@
     ); /* Cor convertida para RGB com opacidade de 0.7 */
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    font-size: 0.4em;
   }
   .welcome p {
     font-size: 1em;
@@ -68,9 +69,12 @@
 @media (max-width: 700px) {
   .welcome p {
     transition: 1s;
-    font-size: 0.5em;
+    font-size: 0.35em;
   }
   .links {
     flex-direction: column;
+  }
+  .links a {
+    font-size: 1em;
   }
 }

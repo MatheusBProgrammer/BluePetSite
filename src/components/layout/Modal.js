@@ -10,7 +10,6 @@ const Modal = ({ cart, preçoTotal, funcao }) => {
 
   const [cliente, setCliente] = useState({
     nome: "",
-    cidade: "",
     bairro: "",
     rua: "",
     numero: "",
@@ -33,7 +32,7 @@ const Modal = ({ cart, preçoTotal, funcao }) => {
     return (
       `Olá, gostaria realizar uma *COMPRA*.\n` +
       `Nome: *${cliente.nome}*,\n` +
-      `Endereço: *${cliente.cidade}, ${cliente.bairro}, ${cliente.rua}, ${cliente.numero}*,\n` +
+      `Endereço: *$${cliente.bairro}, ${cliente.rua}, ${cliente.numero}*,\n` +
       `Meu pedido é : \n ${cart.map((item, index) => {
         return `${item.quantidadeCarrinho} - ${item.nome}`;
       })}\n` +
@@ -56,13 +55,7 @@ const Modal = ({ cart, preçoTotal, funcao }) => {
   };
   useEffect(() => {
     const checkIfFormIsValid = () => {
-      return (
-        cliente.nome &&
-        cliente.cidade &&
-        cliente.rua &&
-        cliente.bairro &&
-        cliente.numero
-      );
+      return cliente.nome && cliente.rua && cliente.bairro && cliente.numero;
     };
 
     setIsSubmitDisabled(!checkIfFormIsValid());
@@ -89,15 +82,6 @@ const Modal = ({ cart, preçoTotal, funcao }) => {
               margin="normal"
               name="nome" // Corrigido para usar name
               value={cliente.nome}
-              onChange={handleOnChange}
-            />
-            <TextField
-              label="Cidade"
-              variant="outlined"
-              fullWidth
-              margin="normal"
-              name="cidade" // Corrigido para usar name
-              value={cliente.endereço}
               onChange={handleOnChange}
             />
             <TextField

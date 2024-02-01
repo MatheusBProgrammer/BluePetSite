@@ -154,10 +154,7 @@
   background-color: green;
   color: white;
 }
-.quantidadeSelect .removerItem:hover {
-  box-shadow: 0px 0px 2px 0px black;
-}
-.quantidadeSelect .adicionarItem:hover {
+.tabela button:hover {
   box-shadow: 0px 0px 2px 0px black;
 }
 .tipo {
@@ -167,8 +164,25 @@
   font-weight: bold;
 }
 @media (max-width: 900px) {
-  .bottom span {
-    font-size: 0.5em;
-    margin-right: 1em;
+  .bottom {
+    width: 70vh;
+    margin: 0;
+    flex-direction: row-reverse;
+    margin-top: 2em;
+    padding: 0;
+    font-size: 0.4em;
+  }
+  .bottom button {
+    width: 7em;
+  }
+  .tabela {
+    font-size: 0.7em;
+  }
+  .tabela td button {
+    border-radius: 10px;
+    font-size: 0.9em;
+  }
+  .bottom button:hover {
+    font-weight: normal;
   }
 }

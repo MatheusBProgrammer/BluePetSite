@@ -121,3 +121,17 @@ h3 {
     padding: 0;
   }
 }
+@media (max-width: 900px) {
+  .container:hover .button {
+    display: none;
+  }
+  .container:hover {
+    background-color: transparent;
+  }
+  .container:hover .imagem,
+  .container:hover p,
+  .container:hover h3 {
+    transition: 1s;
+    display: block;
+  }
+}
