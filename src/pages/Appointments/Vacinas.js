@@ -1,7 +1,7 @@
 // Vacinas.js
 import React, { useState, useEffect } from "react";
 import styles from "./Vacinas.module.css";
-import { TextField, MenuItem, Button } from "@material-ui/core";
+import { TextField, MenuItem, Button } from "@mui/material";
 
 function Vacinas() {
   const initialState = {

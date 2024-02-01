@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Consultas.module.css";
-import { TextField, MenuItem, Button } from "@material-ui/core";
+import { TextField, MenuItem, Button } from "@mui/material";
 import { useState, useEffect } from "react";
 function Consultas() {
   const initialState = {

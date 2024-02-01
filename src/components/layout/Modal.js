@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import styles from "./Modal.module.css";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button } from "@mui/material";
 import { CartContext } from "../context/CartContext";
 import { IoCloseCircleOutline } from "react-icons/io5";
 
