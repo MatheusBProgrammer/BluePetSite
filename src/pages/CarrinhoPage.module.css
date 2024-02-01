@@ -173,6 +173,7 @@
 }
 @media (max-width: 900px) {
   .bottom {
+    min-width: 100%;
     margin: 0;
     flex-direction: row-reverse;
     margin-top: 2em;
@@ -185,7 +186,10 @@
   .bottomItems {
     width: 100%;
   }
+  .bottom span {
+  }
   .bottom button {
+    margin-left: 2em;
     width: 7em;
   }
   .tabela {
@@ -197,5 +201,10 @@
   }
   .bottom button:hover {
     font-weight: normal;
+  }
+
+  .bottomItems button {
+    position: relative;
+    left: 5em;
   }
 }
