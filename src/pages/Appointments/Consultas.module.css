@@ -33,6 +33,9 @@
 }
 
 @media (max-width: 900px) {
+  .header {
+    max-width: 80%;
+  }
   .content {
     width: 90%;
   }
