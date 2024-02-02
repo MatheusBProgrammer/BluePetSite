@@ -22,7 +22,7 @@ const CardProduct = ({ medicamento, funcaoCarrinho }) => {
         </h3>
         <div className={styles.informacoes}>
           <p>Quantidade: {medicamento.quantidade}</p>
-          <p>Preço: {medicamento.preco}</p>
+          <p>Preço: {medicamento.preço}</p>
         </div>
 
         <div className={styles.button}>
