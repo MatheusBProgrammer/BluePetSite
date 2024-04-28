@@ -35,3 +35,13 @@
 .icon:hover {
   color: #007bff; /* Change this color for hover effect */
 }
+@media (max-width: 900px) {
+  .container {
+    justify-content: start;
+    align-items: flex-start;
+    padding: 0;
+    padding: 5%;
+    width: 90%;
+    height: 100%;
+  }
+}
