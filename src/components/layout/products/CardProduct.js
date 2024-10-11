@@ -1,3 +1,5 @@
+// components/layout/products/CardProduct.js
+
 import React from "react";
 import { FaCartPlus } from "react-icons/fa6";
 import { FaPaw } from "react-icons/fa";
@@ -16,10 +18,7 @@ const CardProduct = ({ medicamento, funcaoCarrinho }) => {
         className={styles.imagem}
       />
       <div className={styles.conteudo}>
-        <h3>
-          {medicamento.nome}
-          <br></br>({medicamento.tipo})
-        </h3>
+        <h3>{medicamento.nome}</h3>
         <div className={styles.informacoes}>
           <p>Quantidade: {medicamento.quantidade}</p>
           <p>Preço: {medicamento.preço}</p>

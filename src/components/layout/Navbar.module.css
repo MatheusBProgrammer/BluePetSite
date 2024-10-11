@@ -3,7 +3,7 @@
   margin-top: 0;
   background-color: #e2f97d; /*#5fcd*/
   display: flex;
-  height: 5%;
+  height: 7.5%;
   justify-content: space-between;
   align-items: center;
   overflow: visible;
@@ -24,7 +24,7 @@
   height: 100%;
   text-align: center;
   text-decoration: none;
-  border-right: 1px solid rgba(212, 166, 126, 0.151);
+  border-right: 0.2px solid rgba(212, 166, 126, 0.055);
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   color: white;
@@ -35,12 +35,14 @@
   align-items: center;
   justify-content: center;
   color: #266364;
+  transition: background-color 0.3s ease; /* Transição de 0.3s no background-color */
 }
 .links div a {
   border-radius: 10px;
   color: #266364;
 }
 .links a:hover {
+  transition: background-color 0.3s ease, color 0.3s ease;
   background-color: #f1ffb1;
 }
 .links .about {
@@ -97,9 +99,9 @@
 @media (max-width: 900px) {
   .links div,
   .links .home {
-    font-size: 0.9em;
+    font-size: 1.2em;
   }
   .container {
-    height: 5%;
+    height: 10%;
   }
 }

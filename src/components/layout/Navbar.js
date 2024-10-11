@@ -1,5 +1,3 @@
-// Navbar.js
-
 import React from "react";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
@@ -11,7 +9,7 @@ export default function Navbar() {
     links: [
       { to: "/petshop", nameSession: "Petshop", icon: "🐾" },
       { to: "/farmacia", nameSession: "Farmácia", icon: "💊" },
-      { to: "/carrinho ", nameSession: "Carrinho", icon: "🛒" },
+      { to: "/carrinho", nameSession: "Carrinho", icon: "🛒" },
     ],
   };
   const agendamentoLinks = {
@@ -20,20 +18,19 @@ export default function Navbar() {
       { to: "/consultas", nameSession: "Consultas", icon: "👩‍⚕️" },
       { to: "/vacinas", nameSession: "Vacinas", icon: "💉" },
       { to: "/testes", nameSession: "Testes Rápidos", icon: "🧪" },
-      { to: "/exame", nameSession: "Exames de sangue", icon: "🩸" },
+      { to: "/exame", nameSession: "Exames de Sangue", icon: "🩸" },
     ],
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.links}>
-        <Link to="/" className={styles.home}>
+        <Link to="/" className={`${styles.linkItem} ${styles.home}`}>
           Início
         </Link>
         <NavbarDropDownMenu object={produtosLinks} />
         <NavbarDropDownMenu object={agendamentoLinks} />
-
-        <Link to="/about" className={styles.about}>
+        <Link to="/about" className={`${styles.linkItem} ${styles.about}`}>
           Sobre
         </Link>
       </div>

@@ -1,69 +1,67 @@
+// pages/Petshop.js
+
+import React, { useEffect, useState, useContext } from "react";
 import styles from "./Petshop.module.css";
-import { useContext } from "react";
 import CardProduct from "../../components/layout/products/CardProduct";
-import cachorro from "../../imgs/petshop/cachorro.png";
-import pato from "../../imgs/petshop/pato.png";
-import porco from "../../imgs/petshop/porco.png";
-import sapo from "../../imgs/petshop/sapo.png";
-import tartaruga from "../../imgs/petshop/tartaruga.png";
 import Carrinho from "../../components/layout/products/Carrinho";
 import { CartContext } from "../../components/context/CartContext";
 
 function Petshop() {
-  const produtosPetshop = [
-    {
-      nome: "Pato Pelúcia Premium",
-      quantidade: 1,
-      tipo: "unidade",
-      foto: pato,
-      preço: 29.49,
-    },
-    {
-      nome: "Porco Pelúcia Premium",
-      quantidade: 1,
-      tipo: "unidade",
-      foto: porco,
-      preço: 29.49,
-    },
-    {
-      nome: "Cachorro Pelúcia Premium",
-      quantidade: 1,
-      tipo: "unidade",
-      foto: cachorro,
-      preço: 38.49,
-    },
-
-    {
-      nome: "Sapo Pelúcia Premium",
-      quantidade: 1,
-      tipo: "unidade",
-      foto: sapo,
-      preço: 38.49,
-    },
-    {
-      nome: "Tartaruga Pelúcia Premium",
-      quantidade: 1,
-      tipo: "unidade",
-      foto: tartaruga,
-      preço: 45.49,
-    },
-  ];
-
+  const [produtosPetshop, setProdutosPetshop] = useState([]);
   const { cart, addToCart } = useContext(CartContext);
+
+  useEffect(() => {
+    fetchProdutos();
+  }, []);
+
+  const fetchProdutos = async () => {
+    try {
+      const response = await fetch(
+        "https://backendbluepet.vercel.app/api/products"
+      );
+      if (!response.ok) {
+        throw new Error("Erro na resposta do servidor");
+      }
+      const data = await response.json();
+      const petshopProducts = data.products.filter(
+        (product) => product.type === "petshop"
+      );
+      setProdutosPetshop(petshopProducts);
+    } catch (error) {
+      console.error("Erro ao buscar produtos:", error);
+    }
+  };
 
   return (
     <div className={styles.page}>
-      {cart.length > 0 && <Carrinho />}
-      <div className={styles.container}>
-        {produtosPetshop.map((produto, index) => (
-          <CardProduct
-            key={index}
-            medicamento={produto}
-            funcaoCarrinho={addToCart}
-          />
-        ))}
+      <div className={styles.contentWrapper}>
+        {/* Carrinho será exibido à direita ou no topo em dispositivos móveis */}
+        {cart && cart.length > 0 && <Carrinho />}
+
+        <div className={styles.container}>
+          {produtosPetshop && produtosPetshop.length > 0 ? (
+            produtosPetshop.map((produto) => (
+              <CardProduct
+                key={produto._id}
+                medicamento={{
+                  foto: produto.imageUrl,
+                  nome: produto.name,
+                  tipo: produto.type,
+                  quantidade: produto.quantity,
+                  preço: produto.price || "Indisponível",
+                }}
+                funcaoCarrinho={addToCart}
+              />
+            ))
+          ) : (
+            <div className={styles.noProducts}>
+              Nenhum produto disponível no momento.
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
 }
+
 export default Petshop;

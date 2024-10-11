@@ -1,3 +1,6 @@
+/* Petshop.module.css */
+
+/* Container principal da página */
 .page {
   background-color: #5fcdce80;
   background-image: url("../../imgs/pata3.jpg");
@@ -5,34 +8,87 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
-  align-items: flex-start; /* Change 'start' to 'flex-start' */
+  align-items: flex-start;
   overflow: hidden;
   min-height: 100vh;
   padding-top: 2em;
 }
 
+/* Wrapper de conteúdo para carrinho e produtos */
+.contentWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  align-items: flex-start;
+}
+
+/* Container dos produtos com espaçamento */
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   border-radius: 30px;
   width: 80%;
+  gap: 1.5rem; /* Espaçamento entre os produtos */
 }
 
+/* Ajustes de margem para os produtos */
 .container div {
-  margin-bottom: 2em;
+  margin: 0; /* Removendo margens individuais para usar o gap do flex */
 }
 
-.page div {
-  margin-right: 1em;
-  margin-left: 1em;
-}
-
+/* Responsividade */
 @media (max-width: 900px) {
   .page {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .contentWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    width: 90%;
+  }
+}
+/* Petshop.module.css */
+
+/* Container dos produtos com espaçamento */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  border-radius: 30px;
+  width: 100%; /* Altera para 100% para centralizar quando o carrinho não estiver presente */
+  gap: 1.5rem; /* Espaçamento entre os produtos */
+}
+
+/* Ajustes de margem para os produtos */
+.container div {
+  margin: 0; /* Removendo margens individuais para usar o gap do flex */
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .page {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contentWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    width: 90%;
   }
 }

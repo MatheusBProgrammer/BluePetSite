@@ -1,56 +1,60 @@
-.container img {
-  padding: 0;
-  margin: 0;
-  height: 12em;
-}
-
 .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 0;
-  padding: 0;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 1em;
   background-color: #5fcdce;
 }
+
+.logoImage {
+  height: 80px;
+  width: auto;
+  background-color: #5fcdce;
+  border-radius: 8px;
+}
+
 .contact {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: center;
-  color: white;
-  margin-right: 3em;
-  height: 15vh;
-  font-size: 1.1em;
+  gap: 0.5em;
 }
-.contact svg {
-  color: #cceb56;
 
-  font-size: 1.8em;
-}
-.phoneNumber,
-.instagram {
-  cursor: pointer;
+.contactItem {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-.phoneNumber:hover,
-.instagram:hover {
+  gap: 0.5em;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-/* .contact svg {
-  margin-left: 0.5em;
-  color: #cceb56;
-  border: 1px solid #cce5b6;
-  border-radius: 50%;
-  padding: 3px;
-} */
-@media (max-width: 500px) {
-  .contact {
-    display: none;
-  }
+.contactItem:hover {
+  color: #f1ffb1; /* Cor de destaque ao passar o mouse */
+}
+
+.icon {
+  font-size: 1.2em;
+}
+
+.text {
+  font-size: 1em;
+}
+
+@media (max-width: 600px) {
   .container {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em;
+  }
+
+  .logoImage {
+    height: 60px;
+  }
+
+  .contactItem {
+    font-size: 0.9em;
   }
 }

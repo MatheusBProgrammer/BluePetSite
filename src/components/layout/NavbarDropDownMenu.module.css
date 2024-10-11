@@ -39,6 +39,7 @@
   text-decoration: none;
 }
 .dropdownContent a:hover {
+  transition: 1s;
   font-weight: bold;
   background-color: #e2f97d;
 }

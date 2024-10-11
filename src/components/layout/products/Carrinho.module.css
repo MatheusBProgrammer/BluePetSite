@@ -1,164 +1,105 @@
-.container {
-  box-shadow: 1px 1px 15px 0.1px;
+/* Carrinho.module.css */
+
+.cartContainer {
+  width: 350px; /* Aumentando a largura para mais espaço */
+  background-color: #5fccce;
+  border-radius: 15px;
+  padding: 2rem; /* Aumentando o padding */
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+  margin: 1.5rem; /* Aumentando o espaço ao redor */
   font-family: "Montserrat", sans-serif;
-  width: 40%;
-  min-height: 10vh;
-  background-color: #5fcccedc;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  font-weight: 200;
-  font-size: 2em;
-  padding: 0;
   overflow: hidden;
 }
-.container svg {
-  color: #266364;
-  font-size: 1.5em;
-}
-.container p {
-  font-weight: bold;
-  margin: 0;
-  padding: 0.5em;
 
-  color: #266364;
+/* Cabeçalho do carrinho */
+.cartHeader {
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-.container2 {
-  font-size: 0.5em;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: auto;
-}
-.container2 img {
-  height: 5em;
-}
-.container2 ul {
-  margin: 0;
-  padding: 0;
-}
-
-.container2 ul li {
-  display: flex;
-  align-items: baseline;
-  flex-direction: row;
   align-items: center;
+  font-size: 1.6rem; /* Aumentando ligeiramente o tamanho da fonte */
+  font-weight: bold;
+  margin-bottom: 1.5rem; /* Adicionando mais espaço abaixo do cabeçalho */
 }
-.container2 ul li {
+
+.cartIcon {
+  margin-right: 0.75rem;
+}
+
+/* Itens do carrinho com altura ajustável */
+.cartItems {
+  max-height: 350px; /* Aumentando a altura máxima para mais itens */
+  overflow-y: auto;
+  margin-bottom: 1.5rem;
+}
+
+.cartItems ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Cada item do carrinho */
+.cartItem {
   display: flex;
-  justify-content: space-between;
-  margin: 0.5em;
+  align-items: center;
+  margin-bottom: 1rem;
   background-color: #ffffff;
-  border-radius: 30px;
-  padding: 0.5em;
-}
-.container2 ul li img {
-  border-radius: 30px;
+  color: #266364;
+  border-radius: 12px; /* Ajustando o arredondamento */
+  padding: 0.75rem; /* Aumentando o padding interno */
 }
 
-.container ul li span {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.2em;
+.cartImage {
+  width: 60px; /* Aumentando ligeiramente o tamanho da imagem */
+  height: 60px;
+  border-radius: 12px;
+  margin-right: 0.75rem;
 }
 
-.container ul li .x {
-  font-size: 0.7em;
-}
-
-@media (min-width: 2500px) {
-  .container {
-    font-size: 3em;
-  }
-}
-@media (max-width: 1200px) {
-  .container {
-    font-size: 1.5em;
-  }
-}
-.bottom {
-  width: 100%;
-  margin: 0.5em;
+.itemInfo {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  align-items: center;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.7em;
+  flex-direction: column;
 }
-.bottom span {
-  margin-right: 0.5em;
-  background-color: white;
-  border-radius: 30px;
-}
-.botao {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-.botao a {
-  width: 85%;
-  font-size: 0.8em;
-  color: white;
-  border: 1px solid white;
-  text-decoration: none;
-  padding: 0.2em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  border-radius: 30px;
-  margin-bottom: 0.3em;
-}
-.botao a:hover {
-  border: none;
+
+.itemName {
   font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.itemQuantity {
+  font-size: 0.9rem; /* Aumentando ligeiramente o tamanho da fonte */
+  color: #555;
+}
+
+.cartTotal {
+  font-size: 1.4rem; /* Aumentando o tamanho da fonte para destaque */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.checkoutButton {
+  text-align: center;
+}
+
+.checkoutButton a {
+  text-decoration: none;
   background-color: #266364;
+  color: #ffffff;
+  padding: 1rem 2rem; /* Aumentando o padding para um botão mais encorpado */
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  font-weight: bold;
 }
-@media (max-width: 1200px) {
-  .container {
-    width: 90%;
-    margin-bottom: 1em;
-  }
-  .container2 {
-    padding: 0;
-  }
-  .container2 ul {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-  }
-  .container2 ul li {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-  .botao a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2em;
-    width: 50%;
-    font-size: 0.8em;
-    color: white;
-    border: 1px solid white;
-    text-decoration: none;
-    padding: 0.2em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    border-radius: 30px;
-    margin-bottom: 0.3em;
-  }
+
+.checkoutButton a:hover {
+  background-color: #1e5053;
 }
-.total {
-  color: white;
-  padding: 0;
-  font-size: 0.5em;
-  margin: 0;
-  position: relative;
-  right: 300px;
+
+.emptyCart {
+  text-align: center;
+  font-size: 1.1rem; /* Aumentando ligeiramente o tamanho da fonte */
+  color: #e0e0e0;
 }
