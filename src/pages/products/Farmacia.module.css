@@ -11,7 +11,7 @@
   align-items: flex-start;
   overflow: hidden;
   min-height: 100vh;
-  padding-top: 2em;
+  padding: 2em;
 }
 
 /* Wrapper de conteúdo para carrinho e produtos */

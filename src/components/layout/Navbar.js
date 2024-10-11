@@ -19,6 +19,8 @@ export default function Navbar() {
       { to: "/vacinas", nameSession: "Vacinas", icon: "💉" },
       { to: "/testes", nameSession: "Testes Rápidos", icon: "🧪" },
       { to: "/exame", nameSession: "Exames de Sangue", icon: "🩸" },
+      { to: "/banho", nameSession: "Banho", icon: "🛁" },
+      { to: "/hotelpet", nameSession: "Hotel", icon: "🏨" },
     ],
   };
 

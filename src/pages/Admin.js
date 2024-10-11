@@ -12,7 +12,7 @@ function Admin() {
   const [newProduct, setNewProduct] = useState({
     name: "",
     description: "",
-    quantity: 1,
+    quantity: "",
     price: "", // Novo campo para preço
     type: "petshop",
     image: null,

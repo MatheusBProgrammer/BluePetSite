@@ -3,7 +3,6 @@ import Navbar from "./components/layout/Navbar";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./pages/Home";
-import Products from "./pages/Products";
 import About from "./pages/About";
 import Logo from "./components/layout/Logo";
 import Consultas from "./pages/Appointments/Consultas";
@@ -15,6 +14,8 @@ import Petshop from "./pages/products/Petshop";
 import CarrinhoPage from "./pages/CarrinhoPage";
 import Footer from "./components/layout/Footer";
 import Admin from "./pages/Admin";
+import Banho from "./pages/Appointments/Banho";
+import HotelPet from "./pages/Appointments/hotelpet";
 
 function App() {
   return (
@@ -51,6 +52,8 @@ function RoutesWithTransitions() {
           <Route path="/petshop" element={<Petshop />} />
           <Route path="/carrinho" element={<CarrinhoPage />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/banho" element={<Banho />} />
+          <Route path="/hotelpet" element={<HotelPet />} />
         </Routes>
       </motion.div>
     </AnimatePresence>

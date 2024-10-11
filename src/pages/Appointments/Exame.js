@@ -1,7 +1,14 @@
-// Vacinas.js
+// Exame.js
 import React, { useState, useEffect } from "react";
-import styles from "./Testes.module.css";
-import { TextField, MenuItem, Button } from "@mui/material";
+import styles from "./Exame.module.css";
+import {
+  TextField,
+  MenuItem,
+  Button,
+  Typography,
+  Grid,
+  Box,
+} from "@mui/material";
 
 function Exame() {
   const initialState = {
@@ -21,12 +28,18 @@ function Exame() {
 
   const formatWhatsAppMessage = () => {
     return (
-      `Olá, gostaria de agendar um Exame de Sangue.\n\n` +
-      `Nome: ${formData.name}\n` +
-      `Nome do Pet: ${formData.petName}\n` +
-      `Tipo do Pet: ${formData.petType}\n` +
-      `Idade do Pet: ${formData.petAge}\n` +
-      `Data do exame: ${formData.exameDate}`
+      `Olá, gostaria de agendar um Exame de Sangue.
+
+` +
+      `Nome: ${formData.name}
+` +
+      `Nome do Pet: ${formData.petName}
+` +
+      `Tipo do Pet: ${formData.petType}
+` +
+      `Idade do Pet: ${formData.petAge}
+` +
+      `Data do Exame: ${formData.exameDate}`
     );
   };
 
@@ -42,6 +55,7 @@ function Exame() {
     window.open(whatsappURL, "_blank");
     setFormData(initialState);
   };
+
   useEffect(() => {
     const checkIfFormIsValid = () => {
       return (
@@ -55,74 +69,102 @@ function Exame() {
 
     setIsSubmitDisabled(!checkIfFormIsValid());
   }, [formData]);
+
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <p>Agende um exame</p>
-      </div>
-      <div className={styles.content}>
-        <form onSubmit={handleSubmit}>
-          <TextField
-            label="Seu Nome"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label="Nome do seu Pet"
-            name="petName"
-            value={formData.petName}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            select
-            label="Seu pet é um"
-            name="petType"
-            value={formData.petType}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-          >
-            <MenuItem value="Cachorro">Cachorro</MenuItem>
-            <MenuItem value="Gato">Gato</MenuItem>
-            <MenuItem value="Coelho">Coelho</MenuItem>
-            <MenuItem value="Hamster">Hamster</MenuItem>
-          </TextField>
-          <TextField
-            label="Idade do Pet"
-            name="petAge"
-            value={formData.petAge}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            type="date"
-            label="Data do Exame"
-            name="exameDate"
-            value={formData.exameDate}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-          <Button
-            type="submit"
-            color="primary"
-            variant="contained"
-            style={{ marginTop: "20px", fontSize: "2em", color: "#fff" }}
-            disabled={isSubmitDisabled}
-          >
-            Agendar um Exame
-          </Button>
+      <Box className={styles.formContainer}>
+        <Typography
+          variant="h4"
+          component="h1"
+          className={styles.headerTitle}
+          gutterBottom
+        >
+          Exame de Sangue Pet
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          className={styles.subHeaderTitle}
+          gutterBottom
+        >
+          Agende um exame de sangue para o seu pet
+        </Typography>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                label="Seu Nome"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                fullWidth
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Nome do seu Pet"
+                name="petName"
+                value={formData.petName}
+                onChange={handleChange}
+                fullWidth
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                select
+                label="Tipo de Pet"
+                name="petType"
+                value={formData.petType}
+                onChange={handleChange}
+                fullWidth
+                variant="outlined"
+              >
+                <MenuItem value="Cachorro">Cachorro</MenuItem>
+                <MenuItem value="Gato">Gato</MenuItem>
+                <MenuItem value="Coelho">Coelho</MenuItem>
+                <MenuItem value="Hamster">Hamster</MenuItem>
+              </TextField>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                label="Idade do Pet"
+                name="petAge"
+                value={formData.petAge}
+                onChange={handleChange}
+                fullWidth
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                type="date"
+                label="Data do Exame"
+                name="exameDate"
+                value={formData.exameDate}
+                onChange={handleChange}
+                fullWidth
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                type="submit"
+                color="primary"
+                variant="contained"
+                fullWidth
+                style={{ fontSize: "1.2em", padding: "10px 0" }}
+                disabled={isSubmitDisabled}
+              >
+                Agendar Exame de Sangue
+              </Button>
+            </Grid>
+          </Grid>
         </form>
-      </div>
+      </Box>
     </div>
   );
 }

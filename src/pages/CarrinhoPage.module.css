@@ -1,210 +1,181 @@
+/* Container Principal */
 .container {
-  padding: 5em;
-  padding-top: 1em;
+  padding: 2em;
+  max-width: 800px;
+  margin: auto;
   font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-weight: 200;
-  font-size: 2em;
-  margin: 0;
-}
-.container h2 {
-  width: 100%;
-  margin-bottom: 80vh;
-  text-align: center;
-}
-
-.container svg {
-  font-size: 1.5em;
-}
-
-.container p {
-  font-weight: bold;
-  margin: 0;
-  padding: 0.5em;
-  color: #266364;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.container2 {
-  font-size: 0.5em; /* Adjusted font size */
-  width: 100%;
-  display: flex;
-  flex-direction: column; /* Adjusted to column layout */
-  align-items: center; /* Adjusted to center items */
-}
-
-.container2 img {
-  height: 5em;
-}
-.tabela {
-  width: 80%;
-  border-collapse: collapse;
-  margin-top: 1em;
+  gap: 2em;
   background-color: #ffffff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
 }
 
-.tabela th,
-.tabela td {
-  padding: 0.8em;
-  text-align: center;
-}
-
-.tabela th {
-  background-color: #266364;
-  color: white;
-}
-
-.tabela td {
-  border-top: 1px solid #e0e0e0;
-}
-.cabecalho {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgb(255, 255, 255);
-}
-.bottom {
-  margin-bottom: 10.5vh;
-  width: 80%;
+/* Header */
+.header {
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
-  margin-top: 1em;
+  gap: 0.5em;
+  font-size: 1.5em;
+  color: #333;
 }
-.bottom span {
-  background-color: #266364;
+
+.cartIcon {
+  font-size: 1.5em;
+  color: #266364;
+}
+
+/* Tabela */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
   padding: 1em;
-  color: white;
-  font-weight: bold;
-  border-radius: 30px;
-}
-.bottom button {
-  border-radius: 30px;
-  box-sizing: content-box;
-  width: 400px;
-  height: 2em;
-  border: none;
-  color: rgba(255, 255, 255, 0.473);
-  padding: 15px 32px;
   text-align: center;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1em;
-  background-color: #2663648e;
-
-  cursor: pointer;
+  border-bottom: 1px solid #ddd;
 }
-.bottom button:hover {
-  transition: 0.2s;
-  color: white;
-  font-weight: 800;
+
+.table th {
   background-color: #266364;
+  color: #fff;
 }
-.removeButton button {
-  font-size: 1em;
-  background-color: red;
-  color: white;
-  padding: 0.5em;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-}
-.quantidade {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.quantidadeSelect {
-  display: flex;
-  width: 30%;
-  justify-content: space-around;
-}
-.quantidadeSelect button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.3em;
-  height: 100%;
-  margin: 0em 0.3em 0em 0.3em;
-  font-size: 1em;
-  border-radius: 10px;
-}
-.removerItem {
-  border: none;
-  cursor: pointer;
-  background-color: red;
 
-  color: white;
+.productImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  margin-right: 1em;
 }
-.adicionarItem {
-  border: none;
-  cursor: pointer;
-  background-color: green;
-  color: white;
-}
-.tabela button:hover {
-  box-shadow: 0px 0px 2px 0px black;
-}
-.tipo {
-  font-size: 0.8em;
-}
-.nomeItem {
-  font-weight: bold;
-}
-.bottomItems {
-  width: 100%;
+
+/* Quantidade */
+.quantity {
   display: flex;
-  flex-direction: row-reverse;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.quantity button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.quantity button:disabled {
+  background-color: #ccc;
+}
+
+.quantity button:hover:not(:disabled) {
+  background-color: #ccc;
+}
+
+/* Botão de Remover */
+.removeButton {
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.removeButton:hover {
+  background-color: #d32f2f;
+}
+
+/* Footer */
+.footer {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding-top: 1em;
+  border-top: 1px solid #ddd;
+  font-size: 1.2em;
+  color: #266364;
+  flex-wrap: wrap;
 }
-.bottomItems span {
+
+.footer span {
+  margin-bottom: 1em;
 }
-@media (max-width: 900px) {
-  .bottom {
-    min-width: 100%;
-    margin: 0;
-    flex-direction: row-reverse;
-    margin-top: 2em;
-    justify-content: center;
-    padding: 0;
-    font-size: 0.4em;
-    width: 200%;
+
+.requestButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background-color: #266364;
+  color: #fff;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.requestButton:hover {
+  background-color: #004d40;
+  transform: translateY(-3px);
+}
+
+.emptyCart {
+  text-align: center;
+  font-size: 1.2em;
+  color: #888;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 1em;
   }
 
-  .bottomItems {
-    width: 100%;
+  .header {
+    font-size: 1.2em;
   }
-  .bottom span {
-  }
-  .bottom button {
-    margin-left: 2em;
-    width: 7em;
-  }
-  .tabela {
-    font-size: 0.7em;
-  }
-  .tabela td button {
-    border-radius: 10px;
+
+  .table th,
+  .table td {
+    padding: 0.5em;
     font-size: 0.9em;
   }
-  .bottom button:hover {
-    font-weight: normal;
+
+  .productImage {
+    width: 40px;
+    height: 40px;
   }
 
-  .bottomItems button {
-    position: relative;
-    left: 5em;
+  .quantity button {
+    width: 25px;
+    height: 25px;
+    font-size: 0.9em;
+  }
+
+  .removeButton {
+    padding: 0.4em 0.8em;
+    font-size: 0.9em;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .requestButton {
+    width: 80%;
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+    justify-content: center;
   }
 }
