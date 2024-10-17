@@ -5,16 +5,18 @@ import styles from "./Petshop.module.css";
 import CardProduct from "../../components/layout/products/CardProduct";
 import Carrinho from "../../components/layout/products/Carrinho";
 import { CartContext } from "../../components/context/CartContext";
+import LoadingSpinner from "../../components/layout/LoadingSpinner";
 
 function Petshop() {
   const [produtosPetshop, setProdutosPetshop] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { cart, addToCart } = useContext(CartContext);
-
   useEffect(() => {
     fetchProdutos();
   }, []);
 
   const fetchProdutos = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch(
         "https://backendbluepet.vercel.app/api/products"
@@ -29,6 +31,8 @@ function Petshop() {
       setProdutosPetshop(petshopProducts);
     } catch (error) {
       console.error("Erro ao buscar produtos:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -39,7 +43,11 @@ function Petshop() {
         {cart && cart.length > 0 && <Carrinho />}
 
         <div className={styles.container}>
-          {produtosPetshop && produtosPetshop.length > 0 ? (
+          {isLoading ? (
+            <div className="loading">
+              <LoadingSpinner />
+            </div>
+          ) : produtosPetshop && produtosPetshop.length > 0 ? (
             produtosPetshop.map((produto) => (
               <CardProduct
                 key={produto._id}

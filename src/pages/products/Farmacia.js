@@ -5,9 +5,11 @@ import styles from "./Farmacia.module.css";
 import CardProduct from "../../components/layout/products/CardProduct";
 import Carrinho from "../../components/layout/products/Carrinho";
 import { CartContext } from "../../components/context/CartContext";
+import LoadingSpinner from "../../components/layout/LoadingSpinner";
 
 function Farmacia() {
   const [medicamentos, setMedicamentos] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { cart, addToCart } = useContext(CartContext);
 
   useEffect(() => {
@@ -15,6 +17,7 @@ function Farmacia() {
   }, []);
 
   const fetchMedicamentos = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch(
         "https://backendbluepet.vercel.app/api/products"
@@ -29,6 +32,8 @@ function Farmacia() {
       setMedicamentos(farmaciaProducts);
     } catch (error) {
       console.error("Erro ao buscar medicamentos:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -39,7 +44,11 @@ function Farmacia() {
         {cart && cart.length > 0 && <Carrinho />}
 
         <div className={styles.container}>
-          {medicamentos && medicamentos.length > 0 ? (
+          {isLoading ? (
+            <div className="loading">
+              <LoadingSpinner />
+            </div>
+          ) : medicamentos && medicamentos.length > 0 ? (
             medicamentos.map((produto) => (
               <CardProduct
                 key={produto._id}
